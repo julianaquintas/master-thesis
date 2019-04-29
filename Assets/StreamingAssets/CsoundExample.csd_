@@ -1,0 +1,28 @@
+<CsoundSynthesizer>
+<CsOptions>
+-n -d 
+</CsOptions>
+<CsInstruments>
+sr = 44100
+ksmps = 16
+nchnls = 2
+0dbfs = 1
+
+instr 1 
+    kSpeed = 0.1
+    kFreq = 300
+    
+ 
+     aNoise pinker
+    kWindSpeed poscil 0.6, kSpeed
+    aFilNoise butterbp aNoise, kFreq, 800
+    aWind mac kWindSpeed+0.2, aFilNoise
+   
+    outs aWind, aWind
+    
+endin
+</CsInstruments>
+<CsScore>
+i 1 0 z
+</CsScore>
+</CsoundSynthesizer>
